@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>String Methods</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container m-9 p-5">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Add Paragraph here...</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+        </div> 
+        <button type="button" class="btn btn-primary m-3" onclick="countWord()">Count Words</button>
+        <button type="button" class="btn btn-primary m-3" onclick="countLetter()">Count Letters</button>
+        <button type="button" class="btn btn-primary m-3" onclick="countSpace()">Count Space</button>
+        <button type="button" class="btn btn-primary m-3" onclick="countNL()">Count New line</button>
+        <button type="button" class="btn btn-primary m-3" onclick="titleCase()">Title Case</button>
+        <button type="button" class="btn btn-primary m-3" onclick="countVovel()">Count Vovel</button>
+        <button type="button" class="btn btn-primary m-3" onclick="countConsonent()">Count Consonant</button>
+        <button type="button" class="btn btn-primary m-3" onclick="sortWord()">Sort Words</button>
+        <button type="button" class="btn btn-primary m-3" onclick="cap()">Capitalize</button>
+        <button type="button" class="btn btn-primary m-3" onclick="smallLetter()">Small Letter</button>
+      </div>
+   <p  class="text-center" style="font-size: 30px;font-weight: 700;">Result : <span id="display"></span></p>
+
+
+    <script>
+    function countWord() {
+        let paragraph=document.getElementById('exampleFormControlTextarea1').value;
+        console.log(paragraph);
+        let words=paragraph.split(' ');
+        totalWords=words.length;
+        document.getElementById('display').innerHTML=totalWords;
+
+    }
+
+    function countLetter(){
+        let paragraph=document.getElementById('exampleFormControlTextarea1').value;
+        console.log(paragraph);
+        let letters=paragraph.split('');
+        totalLetters=letters.length;
+        document.getElementById('display').innerHTML=totalLetters;
+    }
+
+    function cap(){
+        let paragraph=document.getElementById('exampleFormControlTextarea1').value;
+        let capital=paragraph.toUpperCase();
+        document.getElementById('display').innerHTML=capital;
+    }
+let smallLetter=()=>{
+    let para=document.getElementById('exampleFormControlTextarea1').value;
+    let small=para.toLowerCase();
+    document.getElementById('display').innerHTML=small;
+}
+
+function countNL(){
+
+    let paragraph=document.getElementById('exampleFormControlTextarea1').value;
+    console.log(paragraph);
+    let nl=paragraph.split('\n');
+    totalNL=nl.length;
+    document.getElementById('display').innerHTML=totalNL;   
+}
+
+
+function titleCase(){
+    let para=document.getElementById('exampleFormControlTextarea1').value;
+    let titleCase=para.split(' ')
+    
+    let sWord =titleCase.map(function(word){
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(' ');
+    document.getElementById('display').innerHTML=sWord;
+}
+
+
+
+function countSpace(){
+    let para=document.getElementById('exampleFormControlTextarea1').value;
+    let totalSpace=para.match(/\s/g);
+    document.getElementById('display').innerHTML=totalSpace;
+}
+    
+function countVovel(){
+
+    let paragraph=document.getElementById('exampleFormControlTextarea1').value;
+    let vovel=paragraph.match(/[aeiou]/g);
+    totalVovel=vovel.length
+    document.getElementById('display').innerHTML=totalVovel;
+}
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
